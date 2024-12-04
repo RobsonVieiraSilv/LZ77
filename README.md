@@ -6,7 +6,17 @@ O algoritmo LZ77 foi desenvolvido em 1977 por Abraham Lempel e Jacob Ziv, o qual
 
 Por exemplo, seja W = 4, o comprimento do janelamento, e a string seja ABBABBABBBAABABA. Podemos separar a string da seguinte forma: A | B | B | ABBABB | BA | A | BA | BA. Observando os dois primeiros caracteres que separamos, notaremos que eles não possuem correspondentes, portanto, são representados pelas tuplas (0, A) e (0,B), respectivamente. Os demais são representados pelas seguinte tuplas: (1,1,1), (1,3,6), (1,4,2), (1,1,1), (1,3,2), (1,2,2). Portanto, a string é representada pela sequência de tuplas (0, A), (0, B), (1,1,1), (1,3,6), (1,4,2), (1,1,1), (1,3,2), (1,2,2).   Note que a quarta tupla tem comprimento 6, isso porque o correspondente A inicia na terceira posição e tem comprimento 3, ou seja, ABB, mas essa sequência se repete mais uma vez, logo, o comprimento é 6. 
 
-## Uso
-O algoritmo LZ77 é implemento em Python, usando o Colab (JupyterNotebook). A implementação está dividida em duas partes: 1ª) há duas principais funções, LZ77_compress e LZ77_decompress. Enquanto a função LZ77_compress comprime a string/texto recebida gerando uma sequência de tuplas, a função LZ77_decompress ao receber a sequência de tuplas, descomprime recuperando a string/texto original. Ou seja, essa parte corresponde ao que foi explicado acima; 2ª) na segunda parte, implementamos duas principais funções, LZ77_encoder e LZ77_ddecoder. A função LZ77_encoder recebe a string e entrega a sequência de tuplas e string codificada, que corresponde a uma sequência binária. Já a função LZ77_decoder, recebe a string codifica e entrega a sequência de tuplas e a string original.
+# Implementação do LZ77 em Python
 
-Apresentamos alguns exemplos e resolvemos dois exercícios do livro "Information Theory, Inference, and Learning Algorithms" de David MacKay.
+O algoritmo LZ77 foi implementado em Python, utilizando o ambiente Colab (Jupyter Notebook). A implementação está organizada em duas partes principais:
+
+1. **Compressão e descompressão básicas**:  
+   - A função `LZ77_compress` comprime uma string ou texto recebido, gerando uma sequência de tuplas.  
+   - A função `LZ77_decompress`, por sua vez, recebe essa sequência de tuplas e a utiliza para descomprimir, recuperando a string ou texto original.  
+   - Esta parte corresponde diretamente à descrição conceitual do funcionamento do LZ77 apresentada anteriormente.  
+
+2. **Codificação e decodificação binária**:  
+   - A função `LZ77_encoder` recebe uma string, gerando como saída uma sequência de tuplas e uma string codificada, que consiste em uma sequência binária.  
+   - A função `LZ77_decoder` realiza o processo inverso: a partir da string codificada, ela recupera tanto a sequência de tuplas quanto a string original.  
+
+Além disso, apresentamos exemplos práticos e resolvemos dois exercícios do livro *"Information Theory, Inference, and Learning Algorithms"* de David MacKay.
