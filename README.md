@@ -4,7 +4,23 @@ Neste repositório, apresenta-se uma implementação básica do algoritmo LZ77 p
 ## Breve explicação
 O algoritmo LZ77 foi desenvolvido em 1977 por Abraham Lempel e Jacob Ziv, o qual é amplamente utilizado para compressão de dados. O algoritmo descrito no artigo de 1977 codifica uma sequência encontrando a correspondência mais longa em qualquer posição dentro de uma janela de símbolos passados. Ele representa a sequência por meio de um ponteiro para a localização da correspondência dentro da janela e pelo comprimento dessa correspondência (Cover e Thomas, 2006). Esse ponteiro é um par dado por (P,L), em que P é a posição, o início da correspondência, e L é o comprimento da correspondência. Ou, podemos representa por (F, P, L), em que F é a flag que assume valores 1 ou 0 se houver correspondência ou não, respectivamente. Chamaremos essa representação de tupla.
 
-Por exemplo, seja W = 4, o comprimento do janelamento, e a string seja ABBABBABBBAABABA. Podemos separar a string da seguinte forma: A | B | B | ABBABB | BA | A | BA | BA. Observando os dois primeiros caracteres que separamos, notaremos que eles não possuem correspondentes, portanto, são representados pelas tuplas (0, A) e (0,B), respectivamente. Os demais são representados pelas seguinte tuplas: (1,1,1), (1,3,6), (1,4,2), (1,1,1), (1,3,2), (1,2,2). Portanto, a string é representada pela sequência de tuplas (0, A), (0, B), (1,1,1), (1,3,6), (1,4,2), (1,1,1), (1,3,2), (1,2,2).   Note que a quarta tupla tem comprimento 6, isso porque o correspondente A inicia na terceira posição e tem comprimento 3, ou seja, ABB, mas essa sequência se repete mais uma vez, logo, o comprimento é 6. 
+Por exemplo, considere \( W = 4 \), o comprimento da janela, e a string `ABBABBABBBAABABA`. Podemos separar a string da seguinte forma:  
+`A | B | B | ABBABB | BA | A | BA | BA`.  
+
+Analisando os dois primeiros caracteres separados, percebemos que eles não possuem correspondências anteriores, sendo, portanto, representados pelas tuplas `(0, A)` e `(0, B)`, respectivamente.  
+
+Os caracteres subsequentes são representados pelas seguintes tuplas:  
+- `(1, 1, 1)`  
+- `(1, 3, 6)`  
+- `(1, 4, 2)`  
+- `(1, 1, 1)`  
+- `(1, 3, 2)`  
+- `(1, 2, 2)`  
+
+Dessa forma, a string é representada pela sequência de tuplas:  
+`(0, A), (0, B), (1, 1, 1), (1, 3, 6), (1, 4, 2), (1, 1, 1), (1, 3, 2), (1, 2, 2)`.  
+
+Um detalhe importante é a quarta tupla, `(1, 3, 6)`, que possui comprimento 6. Isso ocorre porque o correspondente começa na terceira posição da string com comprimento 3 (`ABB`). Essa sequência (`ABB`) se repete mais uma vez, totalizando um comprimento de 6.  
 
 ## Implementação do LZ77 em Python
 
