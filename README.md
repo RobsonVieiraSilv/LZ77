@@ -31,7 +31,7 @@ Por exemplo, suponha que a string reconstruída até o momento seja `BAB`. Se a 
 Dessa forma, ao processar a tupla `(1, 2, 2)`, a string em reconstrução passa de `BAB` para `BABAB`. Esse processo continua até que todas as tuplas tenham sido processadas, resultando na recuperação completa da string original.
 
 Agora, podemos recuperar a string a partir das tuplas `(0, A), (0, B), (1, 1, 1), (1, 3, 6), (1, 4, 2), (1, 1, 1), (1, 3, 2), (1, 2, 2)`:
-               | **Tupla**       | **Ação**                                                             | **String Construída**  |
+|              | Tupla           | Ação                                                                 | String Construída  |
 |--------------|-----------------|----------------------------------------------------------------------|------------------------|
 | 1            | `(0, A)`        | Adicione `A` diretamente.                                            | `A`                    |
 | 2            | `(0, B)`        | Adicione `B` diretamente.                                            | `AB`                   |
