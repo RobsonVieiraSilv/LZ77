@@ -6,7 +6,7 @@ O algoritmo LZ77 foi desenvolvido em 1977 por Abraham Lempel e Jacob Ziv, o qual
 
 Por exemplo, seja W = 4, o comprimento do janelamento, e a string seja ABBABBABBBAABABA. Podemos separar a string da seguinte forma: A | B | B | ABBABB | BA | A | BA | BA. Observando os dois primeiros caracteres que separamos, notaremos que eles não possuem correspondentes, portanto, são representados pelas tuplas (0, A) e (0,B), respectivamente. Os demais são representados pelas seguinte tuplas: (1,1,1), (1,3,6), (1,4,2), (1,1,1), (1,3,2), (1,2,2). Portanto, a string é representada pela sequência de tuplas (0, A), (0, B), (1,1,1), (1,3,6), (1,4,2), (1,1,1), (1,3,2), (1,2,2).   Note que a quarta tupla tem comprimento 6, isso porque o correspondente A inicia na terceira posição e tem comprimento 3, ou seja, ABB, mas essa sequência se repete mais uma vez, logo, o comprimento é 6. 
 
-# Implementação do LZ77 em Python
+## Implementação do LZ77 em Python
 
 O algoritmo LZ77 foi implementado em Python, utilizando o ambiente Colab (Jupyter Notebook). A implementação está organizada em duas partes principais:
 
@@ -20,3 +20,7 @@ O algoritmo LZ77 foi implementado em Python, utilizando o ambiente Colab (Jupyte
    - A função `LZ77_decoder` realiza o processo inverso: a partir da string codificada, ela recupera tanto a sequência de tuplas quanto a string original.  
 
 Além disso, apresentamos exemplos práticos e resolvemos dois exercícios do livro *"Information Theory, Inference, and Learning Algorithms"* de David MacKay.
+
+## Refrências
+1. MacKay, David JC. Information theory, inference and learning algorithms. Cambridge university press, 2002.
+2. Thomas, M. T. C. A. J., and A. Thomas Joy. Elements of information theory. Wiley-Interscience, 2006.
